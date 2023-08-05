@@ -29,6 +29,66 @@ img {
   display: block;
 }
 
+#team-members-modal {
+  position: fixed;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: #fcd34d;
+  border-radius: 8px;
+  padding: 16px 12px;
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  color: #115e59;
+}
+
+#team-members-modal.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+#close-modal-btn {
+  align-self: flex-end;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid gray;
+  background-color: #e11d48;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#close-modal-btn:hover {
+  background-color: #9f1239;
+}
+
+.team-members-title {
+  font-size: 1.4rem;
+  color: #022c22;
+  text-align: center;
+  margin: 12px;
+}
+
+.team-members-list {
+  padding: 4px 24px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.team-members-list > li {
+  padding: 4px;
+  font-weight: bold;
+}
+
 .image-and-about-me-section {
   display: grid;
   grid-template-columns: 1fr;

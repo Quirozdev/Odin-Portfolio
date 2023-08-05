@@ -35,8 +35,43 @@ const teamNames = {
   ],
 };
 
+const teamMembersModal = document.getElementById('team-members-modal');
+const closeModalBtn = document.getElementById('close-modal-btn');
+const teamMembersList = document.querySelector('.team-members-list');
+
 document.querySelectorAll('.team-list-btn').forEach((teamListBtn) => {
   teamListBtn.addEventListener('click', (e) => {
-    console.log(teamNames[teamListBtn.getAttribute('data-team-names-id')]);
+    loadModalWithTeamNames(
+      teamNames[teamListBtn.getAttribute('data-team-names-id')]
+    );
+    showModal();
   });
 });
+
+closeModalBtn.addEventListener('click', () => {
+  hideModal();
+});
+
+// to close the modal when the key Escape is pressed
+document.addEventListener('keyup', (e) => {
+  if (e.key.toLocaleLowerCase() === 'escape') {
+    hideModal();
+  }
+});
+
+function showModal() {
+  teamMembersModal.classList.add('visible');
+}
+
+function hideModal() {
+  teamMembersModal.classList.remove('visible');
+}
+
+function loadModalWithTeamNames(teamMembersArr) {
+  teamMembersList.textContent = '';
+  teamMembersArr.forEach((teamMemberName) => {
+    const liElement = document.createElement('li');
+    liElement.textContent = teamMemberName;
+    teamMembersList.appendChild(liElement);
+  });
+}
